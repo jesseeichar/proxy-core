@@ -11,7 +11,8 @@ dependencies {
 }
 
 filterWebapp {
-    def config = rootProject.allprojects.find{it.path.endsWith(":proxy:config")}
+    def configPath = project.path.substring(0, project.path.indexOf(project.name))+"config"
+    def config = rootProject.allprojects.find{it.path == configPath}
     filterFiles = config.filterWebapp.filterFiles
 }
 
