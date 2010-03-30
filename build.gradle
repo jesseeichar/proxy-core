@@ -13,6 +13,7 @@ dependencies {
 filterWebapp {
     def configPath = project.path.substring(0, project.path.indexOf(project.name))+"config"
     def config = rootProject.allprojects.find{it.path == configPath}
+    from config.filterWebappIn
     filterFiles = config.filterWebapp.filterFiles
 }
 
